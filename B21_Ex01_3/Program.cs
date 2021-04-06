@@ -1,5 +1,4 @@
-﻿using B21_Ex01_2;
-using System;
+﻿using System;
 using System.Text;
 
 namespace B21_Ex01_3
@@ -9,7 +8,8 @@ namespace B21_Ex01_3
         public static void Main()
         {
             Console.WriteLine("Write the hieght of the sand clock you wish to see");
-            String stringNum = getValidinput();
+            //String stringNum = getValidinput();
+            String stringNum = "5";
             int highOfSandCLock = int.Parse(stringNum);
             if(highOfSandCLock % 2 == 0)
             {
