@@ -27,7 +27,7 @@ namespace B21_Ex01_3
         {
             int result;
             string userInput = Console.ReadLine();
-            while(!(int.TryParse(userInput, out result) && result > 0 ))
+            while(!(int.TryParse(userInput, out result) && result > 0))
             {
                 Console.WriteLine("You entered invalid input. Please insert positive number");
                 userInput = Console.ReadLine();
