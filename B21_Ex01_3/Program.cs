@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace B21_Ex01_5
+namespace B21_Ex01_3
 {
-    class Class1
+    class Program
     {
     }
 }

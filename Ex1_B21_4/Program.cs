@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ex1_B21_4
 {
-    class Class1
+    class Program
     {
     }
 }
