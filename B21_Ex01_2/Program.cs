@@ -11,10 +11,9 @@ namespace B21_Ex01_2
             highLevelAtSandClock.Append("*****");
             RecursionSandClock(5, new StringBuilder(),highLevelAtSandClock );
         }
-
         public static void RecursionSandClock(int i_HeightLevel, StringBuilder i_StringOfSpaces, StringBuilder i_StringOfStars)
         {
-            if(i_HeightLevel == 1)
+            if (i_HeightLevel == 1)
             {
                 Console.WriteLine("{0}{1}{0}", i_StringOfSpaces, i_StringOfStars);
 
@@ -30,5 +29,6 @@ namespace B21_Ex01_2
             i_StringOfStars.Append("**");
             Console.WriteLine("{0}{1}{0}", i_StringOfSpaces, i_StringOfStars);
         }
+
     }
 }

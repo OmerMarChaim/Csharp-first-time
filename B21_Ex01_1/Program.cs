@@ -58,7 +58,7 @@ namespace B21_Ex01_1
             String userInput = Console.ReadLine();
 
             while (userInput != null && !(userInput != "" && isBinary(userInput) && (i_NumberOfBits == userInput.Length)
-                                         && isZero(userInput)))
+                                         && IsZero(userInput)))
             {
                 Console.WriteLine(
                     "Your number is not a valid binary number. Please insert binary number with {0} bits",
@@ -83,7 +83,7 @@ namespace B21_Ex01_1
             return isBinaryFlag;
         }
 
-        private static bool isZero(String i_BinaryNumber)
+        public static bool IsZero(String i_BinaryNumber)
         {
             bool isZeroFlag = i_BinaryNumber.IndexOf('1') != -1;
 
