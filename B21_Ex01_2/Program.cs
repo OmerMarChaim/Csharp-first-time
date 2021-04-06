@@ -7,9 +7,9 @@ namespace B21_Ex01_2
     {
         public static void Main()
         {
-            StringBuilder oneLevelAtSandClock = new StringBuilder();
-            oneLevelAtSandClock.Append("*****");
-            recursionSandClock(5, new StringBuilder(),oneLevelAtSandClock );
+            StringBuilder highLevelAtSandClock = new StringBuilder();
+            highLevelAtSandClock.Append("*****");
+            recursionSandClock(5, new StringBuilder(),highLevelAtSandClock );
         }
 
         private static void recursionSandClock(int i_HeightLevel, StringBuilder i_StringOfSpaces, StringBuilder i_StringOfStars)
