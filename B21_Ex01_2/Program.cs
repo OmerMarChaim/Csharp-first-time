@@ -12,23 +12,23 @@ namespace B21_Ex01_2
             recursionSandClock(5, new StringBuilder(),oneLevelAtSandClock );
         }
 
-        private static void recursionSandClock(int i_Hight, StringBuilder i_Spaces, StringBuilder i_Stars)
+        private static void recursionSandClock(int i_HeightLevel, StringBuilder i_StringOfSpaces, StringBuilder i_StringOfStars)
         {
-            if(i_Hight == 1)
+            if(i_HeightLevel == 1)
             {
                 Console.WriteLine("  *  ");
 
                 return;
             }
             
-            Console.WriteLine("{0}{1}{0}", i_Spaces, i_Stars);
-            i_Spaces.Append(" ");
-            i_Stars.Remove(0, 2);
+            Console.WriteLine("{0}{1}{0}", i_StringOfSpaces, i_StringOfStars);
+            i_StringOfSpaces.Append(" ");
+            i_StringOfStars.Remove(0, 2);
 
-            recursionSandClock(i_Hight -= 2, i_Spaces, i_Stars);
-            i_Spaces.Remove(0, 1);
-            i_Stars.Append("**");
-            Console.WriteLine("{0}{1}{0}", i_Spaces, i_Stars);
+            recursionSandClock(i_HeightLevel -= 2, i_StringOfSpaces, i_StringOfStars);
+            i_StringOfSpaces.Remove(0, 1);
+            i_StringOfStars.Append("**");
+            Console.WriteLine("{0}{1}{0}", i_StringOfSpaces, i_StringOfStars);
             
         }
     }
