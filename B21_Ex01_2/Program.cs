@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Security.AccessControl;
 using System.Text;
 
 namespace B21_Ex01_2
@@ -8,25 +7,29 @@ namespace B21_Ex01_2
     {
         public static void Main()
         {
-            recursionSandClock( 5,0);
+            StringBuilder oneLevelAtSandClock = new StringBuilder();
+            oneLevelAtSandClock.Append("*****");
+            recursionSandClock(5, new StringBuilder(),oneLevelAtSandClock );
         }
 
-        private static StringBuilder recursionSandClock(int i_Hight, int i_Left ,StringBuilder i_oneLevelAtSandClock)
+        private static void recursionSandClock(int i_Hight, StringBuilder i_Spaces, StringBuilder i_Stars)
         {
             if(i_Hight == 1)
             {
                 Console.WriteLine("  *  ");
 
-                return new StringBuilder();
+                return;
             }
+            
+            Console.WriteLine("{0}{1}{0}", i_Spaces, i_Stars);
+            i_Spaces.Append(" ");
+            i_Stars.Remove(0, 2);
 
-            i_oneLevelAtSandClock.Append("*****", i_Left, i_Hight);
-            Console.WriteLine(i_oneLevelAtSandClock);
-
-            recursionSandClock(i_Hight-=2,i_Left++,i_oneLevelAtSandClock);
-            Console.WriteLine(i_oneLevelAtSandClock);
-
-
+            recursionSandClock(i_Hight -= 2, i_Spaces, i_Stars);
+            i_Spaces.Remove(0, 1);
+            i_Stars.Append("**");
+            Console.WriteLine("{0}{1}{0}", i_Spaces, i_Stars);
+            
         }
     }
 }
