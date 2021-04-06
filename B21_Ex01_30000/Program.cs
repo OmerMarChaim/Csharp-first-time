@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Text;
-using B21_Ex01_2;
+    //using B21_Ex01_2;
 
 namespace B21_Ex01_3
 {
@@ -21,7 +21,7 @@ namespace B21_Ex01_3
                 firstLine.Append("*");
             }
 
-           B21_Ex01_2.Program.RecursionSandClock(highOfSandCLockInput, new StringBuilder(), firstLine);
+        //   B21_Ex01_2.Program.RecursionSandClock(highOfSandCLockInput, new StringBuilder(), firstLine);
         }
 
         private static int getValidInput()
