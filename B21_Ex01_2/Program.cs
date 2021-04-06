@@ -20,7 +20,7 @@ namespace B21_Ex01_2
 
                 return;
             }
-            
+
             Console.WriteLine("{0}{1}{0}", i_StringOfSpaces, i_StringOfStars);
             i_StringOfSpaces.Append(" ");
             i_StringOfStars.Remove(0, 2);
@@ -29,7 +29,6 @@ namespace B21_Ex01_2
             i_StringOfSpaces.Remove(0, 1);
             i_StringOfStars.Append("**");
             Console.WriteLine("{0}{1}{0}", i_StringOfSpaces, i_StringOfStars);
-            
         }
     }
 }
