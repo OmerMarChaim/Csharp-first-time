@@ -66,6 +66,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\B21_Ex01_1\B21_Ex01_1.csproj">
+      <Project>{f71fb9c4-df8b-4760-88ac-b4588a1c29ef}</Project>
+      <Name>B21_Ex01_1</Name>
+    </ProjectReference>
     <ProjectReference Include="..\B21_Ex01_2\B21_Ex01_2.csproj">
       <Project>{bdc64cde-5f01-4c70-a41f-76c592725c2f}</Project>
       <Name>B21_Ex01_2</Name>
