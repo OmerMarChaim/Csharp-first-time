@@ -16,7 +16,7 @@ namespace B21_Ex01_2
         {
             if(i_HeightLevel == 1)
             {
-                Console.WriteLine("  *  ");
+                Console.WriteLine("{0}{1}{0}", i_StringOfSpaces, i_StringOfStars);
 
                 return;
             }
