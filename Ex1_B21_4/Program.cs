@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Linq;
-using System.Text;
 
 namespace Ex1_B21_4
 {
@@ -8,8 +6,8 @@ namespace Ex1_B21_4
     {
         public static void Main()
         {
-           String input = getValidInput();
-           stringAnalise(input);
+            string input = getValidInput();
+            stringAnalyze(input);
         }
 
         private static string getValidInput()
@@ -18,7 +16,6 @@ namespace Ex1_B21_4
             string userInput = Console.ReadLine();
             while(!(isNumber(userInput) || isEnglishWord(userInput)))
             {
-             
                 Console.WriteLine("Your input is invalid. Pleas try again.");
                 userInput = Console.ReadLine();
             }
@@ -26,24 +23,17 @@ namespace Ex1_B21_4
             return userInput;
         }
 
-        private static void stringAnalise(string i_Input)
+        private static void stringAnalyze(string i_Input)
         {
-            bool isPalindromFlag = isPalindrome(i_Input);
-            if(isPalindromFlag)
-                Console.WriteLine("is palindrome");
-            else
-            {
-                Console.WriteLine("not palindrome");
-            }
+            bool isPalindromeFlag = isPalindrome(i_Input);
+            Console.Write("Your input is ");
+            Console.WriteLine(isPalindromeFlag ? "palindrome" : "NOT palindrome");
+
             if(isNumber(i_Input))
             {
-                bool isMultipalOfFourFlag = isMultipalOfFour(i_Input);
-                if (isMultipalOfFourFlag)
-                    Console.WriteLine("is mult by 4");
-                else
-                {
-                    Console.WriteLine("not mult by 4");
-                }
+                bool isMultiplicationOfFourFlag = isMultiplicationOfFour(i_Input);
+                Console.Write("Your input is ");
+                Console.WriteLine(isMultiplicationOfFourFlag ? "multiplication of 4" : "NOT multiplication of 4");
             }
             else
             {
@@ -63,17 +53,18 @@ namespace Ex1_B21_4
                     numOfCapital++;
                 }
             }
-            return numOfCapital;
 
+            return numOfCapital;
         }
 
-        private static bool isMultipalOfFour(string i_Input)
+        private static bool isMultiplicationOfFour(string i_Input)
         {
             int numberRepInput = int.Parse(i_Input);
-            return numberRepInput % 4 == 0 ? true : false;
+
+            return numberRepInput % 4 == 0;
         }
 
-        private static bool isNumber(String i_String)
+        private static bool isNumber(string i_String)
         {
             return int.TryParse(i_String, out int _);
         }
@@ -81,9 +72,9 @@ namespace Ex1_B21_4
         private static bool isEnglishWord(string i_UserInput)
         {
             bool isEnglishWordFlag = true;
-            for(int i = 0; i < i_UserInput.Length; i++)
+            foreach(char t in i_UserInput)
             {
-                if(!(Char.IsLower(i_UserInput[i]) || Char.IsUpper(i_UserInput[i])))
+                if(!(char.IsLower(t) || Char.IsUpper(t)))
                 {
                     isEnglishWordFlag = false;
 
@@ -96,27 +87,28 @@ namespace Ex1_B21_4
 
         private static bool isPalindrome(string i_Input)
         {
-            bool palindromeFlag=false;
-            return isPalindromeReqHelper(i_Input,0, (i_Input.Length)-1,palindromeFlag);
+            return isPalindromeReqHelper(i_Input, 0, (i_Input.Length) - 1, false);
         }
 
-        private static bool isPalindromeReqHelper(string i_Input, int i_LeftEdge, int i_RightEdge,bool palindromeFlag)
+        private static bool isPalindromeReqHelper(
+            string i_Input,
+            int i_LeftEdge,
+            int i_RightEdge,
+            bool i_PalindromeFlag)
         {
-            
             if(i_LeftEdge > i_RightEdge)
             {
-                palindromeFlag = true;
-                return palindromeFlag;
+                return true;
             }
 
             if(i_Input[i_LeftEdge] != i_Input[i_RightEdge])
             {
-                palindromeFlag = false;
-                return palindromeFlag;
+                return false;
             }
 
-           palindromeFlag= isPalindromeReqHelper(i_Input, i_LeftEdge+1, i_RightEdge-1,palindromeFlag);
-            return palindromeFlag;
+            i_PalindromeFlag = isPalindromeReqHelper(i_Input, i_LeftEdge + 1, i_RightEdge - 1, i_PalindromeFlag);
+
+            return i_PalindromeFlag;
         }
     }
 }
