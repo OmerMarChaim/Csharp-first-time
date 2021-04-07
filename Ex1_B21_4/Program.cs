@@ -8,7 +8,7 @@ namespace Ex1_B21_4
     {
         public static void Main()
         {
-           String input = validInputUser();
+           String input = getValidInput();
            stringAnalise(input);
         }
 
@@ -16,8 +16,9 @@ namespace Ex1_B21_4
         {
             Console.WriteLine("Please enter a valid input: consist of English letters only or digits only");
             string userInput = Console.ReadLine();
-            while(isNumber(userInput) || isEnglishWord(userInput))
+            while(!(isNumber(userInput) || isEnglishWord(userInput)))
             {
+             
                 Console.WriteLine("Your input is invalid. Pleas try again.");
                 userInput = Console.ReadLine();
             }
@@ -28,9 +29,21 @@ namespace Ex1_B21_4
         private static void stringAnalise(string i_Input)
         {
             bool isPalindromFlag = isPalindrome(i_Input);
+            if(isPalindromFlag)
+                Console.WriteLine("is palindrome");
+            else
+            {
+                Console.WriteLine("not palindrome");
+            }
             if(isNumber(i_Input))
             {
                 bool isMultipalOfFourFlag = isMultipalOfFour(i_Input);
+                if (isMultipalOfFourFlag)
+                    Console.WriteLine("is mult by 4");
+                else
+                {
+                    Console.WriteLine("not mult by 4");
+                }
             }
             else
             {
@@ -102,7 +115,7 @@ namespace Ex1_B21_4
                 return palindromeFlag;
             }
 
-            isPalindromeReqHelper(i_Input, i_LeftEdge++, i_RightEdge--,palindromeFlag);
+           palindromeFlag= isPalindromeReqHelper(i_Input, i_LeftEdge+1, i_RightEdge-1,palindromeFlag);
             return palindromeFlag;
         }
     }
