@@ -12,26 +12,32 @@ namespace Ex1_B21_4
            stringAnalise(input);
         }
 
-      //  private static string validInputUser()
-      //  {
-        //    string validInput;
+        private static string getValidInput()
+        {
+            Console.WriteLine("Please enter a valid input: consist of English letters only or digits only");
+            string userInput = Console.ReadLine();
+            while(isNumber(userInput) || isEnglishWord(userInput))
+            {
+                Console.WriteLine("Your input is invalid. Pleas try again.");
+                userInput = Console.ReadLine();
+            }
 
-           // return validInput;
-    //    }
+            return userInput;
+        }
 
         private static void stringAnalise(string i_Input)
         {
             bool isPalindromFlag = isPalindrome(i_Input);
-            Console.WriteLine("this is a palindrom{0}",isPalindromFlag);
-            if(isNumber())
+            if(isNumber(i_Input))
             {
                 bool isMultipalOfFourFlag = isMultipalOfFour(i_Input);
             }
             else
             {
-                Console.WriteLine("The number of capital letters (uppercase) in your input is {0}",numberOfCapitalLetters(i_Input));
+                Console.WriteLine(
+                    "The number of capital letters (uppercase) in your input is {0}",
+                    numberOfCapitalLetters(i_Input));
             }
-            
         }
 
         private static int numberOfCapitalLetters(string i_Input)
@@ -54,9 +60,25 @@ namespace Ex1_B21_4
             return numberRepInput % 4 == 0 ? true : false;
         }
 
-        private static bool isNumber()
+        private static bool isNumber(String i_String)
         {
-            throw new NotImplementedException();
+            return int.TryParse(i_String, out int _);
+        }
+
+        private static bool isEnglishWord(string i_UserInput)
+        {
+            bool isEnglishWordFlag = true;
+            for(int i = 0; i < i_UserInput.Length; i++)
+            {
+                if(!(Char.IsLower(i_UserInput[i]) || Char.IsUpper(i_UserInput[i])))
+                {
+                    isEnglishWordFlag = false;
+
+                    break;
+                }
+            }
+
+            return isEnglishWordFlag;
         }
 
         private static bool isPalindrome(string i_Input)
