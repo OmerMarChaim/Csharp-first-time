@@ -36,12 +36,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <Reference Include="B21_Ex01_2">
       <HintPath>..\B21_Ex01_2\obj\Debug\B21_Ex01_2.exe</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

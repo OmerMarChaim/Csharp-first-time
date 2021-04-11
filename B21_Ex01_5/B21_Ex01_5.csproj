@@ -38,5 +38,10 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Ex1_B21_4">
+      <HintPath>..\Ex1_B21_4\obj\Debug\Ex1_B21_4.exe</HintPath>
+    </Reference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

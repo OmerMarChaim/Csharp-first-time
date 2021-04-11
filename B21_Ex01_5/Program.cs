@@ -6,17 +6,17 @@ namespace B21_Ex01_5
     {
         public static void Main()
         {
-            string userInput =  getValidInput();
+            string userInputStr =  getValidInput();
             //check input
-           
-            analyze(userInput);
+            int userInputNum = int.Parse(userInputStr);
+            analyze(userInputNum);
         }
 
         private static string getValidInput()
         {
             Console.WriteLine("Please enter a valid input: number with 6 digits");
             string userInput = Console.ReadLine();
-            while(!(IsNumber(userInput)|| userInput.Length!=6))
+            while(!(Ex1_B21_4.Program.IsNumber(userInput)&& userInput.Length==6))
             {
                 Console.WriteLine("Your input is invalid. Pleas try again.");
                 userInput = Console.ReadLine();
@@ -25,7 +25,7 @@ namespace B21_Ex01_5
             return userInput;
         }
 
-        private static void analyze(string i_Input)
+        private static void analyze(int i_Input)
         {
             // 1 - check the biggest digit
             // 2 - check the smallest digit
