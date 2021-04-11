@@ -83,15 +83,15 @@ namespace B21_Ex01_5
         private static int getSmallestDigit(int i_Number)
         {
             int userInput = i_Number;
-            int smallestDigitNumber = i_Number % 10;
+            int smallestDigit = i_Number % 10;
 
             while(userInput > 0)
             {
-                smallestDigitNumber = Math.Min(userInput % 10, smallestDigitNumber);
+                smallestDigit = Math.Min(userInput % 10, smallestDigit);
                 userInput /= 10;
             }
 
-            return smallestDigitNumber;
+            return smallestDigit;
         }
 
         private static int getNumberOfDigitsDividedByThree(string i_Number)
