@@ -74,7 +74,7 @@ namespace B21_Ex01_5
             while(userInput > 0)
             {
                 largestDigit = Math.Max(userInput % 10, largestDigit);
-                userInput = userInput/ 10;
+                userInput /= 10;
             }
 
             return largestDigit;
@@ -93,6 +93,21 @@ namespace B21_Ex01_5
 
             return smallestDigitNumber;
         }
-        
+
+        private static int theNumberOfDigitsDividedByThree(string i_Number)
+        {
+            int numberOfDigitsCounter = 0;
+            int numberOfDigits = i_Number.Length;
+            for(int i = 0; i < numberOfDigits; i++)
+            {
+                int.TryParse(i_Number[i].ToString(), out int currentDigit);
+                if(currentDigit / 3 == 0)
+                {
+                    numberOfDigitsCounter++;
+                }
+            }
+
+            return numberOfDigitsCounter;
+        }
     }
 }
