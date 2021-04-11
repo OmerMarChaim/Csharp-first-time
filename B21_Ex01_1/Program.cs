@@ -15,12 +15,12 @@ namespace B21_Ex01_1
         {
             String[] userInputs = new String[i_NumberOfInputs];
             int[] decimalValues = new int[i_NumberOfInputs];
-            String msg = String.Format( // Ask about Format with ${}
+            String startMsg = String.Format(
                 "Please insert {0} positive numbers with {1} digits in valid binary format",
                 i_NumberOfInputs,
                 i_NumberOfBits);
 
-            Console.WriteLine(msg);
+            Console.WriteLine(startMsg);
             for (int i = 0; i < i_NumberOfInputs; i++)
             {
                 userInputs[i] = getValidInputs(i_NumberOfBits);
