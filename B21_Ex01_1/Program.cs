@@ -103,8 +103,9 @@ namespace B21_Ex01_1
             }
 
             Console.WriteLine(
+                String.Format(
                 "The number of numbers that is strictly monotonically increasing is {0}",
-                sumOfStrictlyIncreasingNumbers);
+                sumOfStrictlyIncreasingNumbers));
         }
 
         private static bool isStrictlyIncreasingSeries(int i_NumToCheck)
@@ -141,8 +142,8 @@ namespace B21_Ex01_1
             float averageOfOnes = numberOfOnes / lengthOfInput;
             float averageOfZeros = numberOfZeros / lengthOfInput;
 
-            Console.WriteLine("The average of ones in the input numbers is {0}", averageOfOnes);
-            Console.WriteLine("The average of zeros in the input numbers is {0}", averageOfZeros);
+            Console.WriteLine(string.Format("The average of ones in the input numbers is {0}", averageOfOnes));
+            Console.WriteLine(string.Format("The average of zeros in the input numbers is {0}", averageOfZeros));
         }
 
         private static void powerOfTwo(String[] i_BinaryValues)
@@ -157,7 +158,7 @@ namespace B21_Ex01_1
                 }
             }
 
-            Console.WriteLine("The number of numbers that is power of two is {0}", numberOfPowerOfTwo);
+            Console.WriteLine(string.Format("The number of numbers that is power of two is {0}", numberOfPowerOfTwo));
         }
 
         private static int getNumberOfOnes(String i_BinaryValue)
@@ -192,8 +193,8 @@ namespace B21_Ex01_1
                 }
             }
 
-            Console.WriteLine("The maximum number is {0}", maxValue);
-            Console.WriteLine("The minimum number is {0}", minValue);
+            Console.WriteLine(string.Format("The maximum number is {0}", maxValue));
+            Console.WriteLine(string.Format("The minimum number is {0}", minValue));
         }
     }
 }
