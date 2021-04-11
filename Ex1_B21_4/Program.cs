@@ -14,7 +14,7 @@ namespace Ex1_B21_4
         {
             Console.WriteLine("Please enter a valid input: consist of English letters only or digits only");
             string userInput = Console.ReadLine();
-            while(!(isNumber(userInput) || isEnglishWord(userInput)))
+            while(!(IsNumber(userInput) || isEnglishWord(userInput)))
             {
                 Console.WriteLine("Your input is invalid. Pleas try again.");
                 userInput = Console.ReadLine();
@@ -29,7 +29,7 @@ namespace Ex1_B21_4
             Console.Write("Your input is ");
             Console.WriteLine(isPalindromeFlag ? "palindrome" : "NOT palindrome");
 
-            if(isNumber(i_Input))
+            if(IsNumber(i_Input))
             {
                 bool isMultiplicationOfFourFlag = isMultiplicationOfFour(i_Input);
                 Console.Write("Your input is ");
@@ -64,7 +64,7 @@ namespace Ex1_B21_4
             return numberRepInput % 4 == 0;
         }
 
-        private static bool isNumber(string i_String)
+        public static bool IsNumber(string i_String)
         {
             return int.TryParse(i_String, out int trashResult);
         }
