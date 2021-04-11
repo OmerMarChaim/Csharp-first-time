@@ -139,8 +139,8 @@ namespace B21_Ex01_1
             }
 
             int numberOfZeros = (numberOfDigits * lengthOfInput) - numberOfOnes;
-            float averageOfOnes = numberOfOnes / lengthOfInput;
-            float averageOfZeros = numberOfZeros / lengthOfInput;
+            float averageOfOnes = numberOfOnes / (float)lengthOfInput;
+            float averageOfZeros = numberOfZeros / (float)lengthOfInput;
 
             Console.WriteLine(string.Format("The average of ones in the input numbers is {0}", averageOfOnes));
             Console.WriteLine(string.Format("The average of zeros in the input numbers is {0}", averageOfZeros));
