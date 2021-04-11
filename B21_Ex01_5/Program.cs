@@ -13,7 +13,7 @@ namespace B21_Ex01_5
             //check input
             int userInputNum = int.Parse(userInputStr);
 
-            analyzeNumber(userInputNum);
+            analyzeNumber(userInputNum,userInputStr);
         }
 
         private static string getValidInput(int expectedInputLength)
@@ -28,12 +28,12 @@ namespace B21_Ex01_5
 
             return userInput;
         }
-        private static void analyzeNumber(int i_Input)
+        private static void analyzeNumber(int i_InputInt,string i_InputStr)
         {
-            int largestDigit = getLargestDigit(i_Input);
-            int smallestDigit = getSmallestDigit(i_Input);
+            int largestDigit = getLargestDigit(i_InputInt);
+            int smallestDigit = getSmallestDigit(i_InputInt);
             int numberOfLettersDivideByThree = 0;
-            int numberOfDigitisThatAreBiggerThenTheUnitsDigit = getBiggerThenUnit(i_Input);
+            int numberOfDigitisThatAreBiggerThenTheUnitsDigit = getBiggerThenUnit(i_InputInt);
             char currentDigit;
             Console.WriteLine(string.Format("The largest digit is {0}", largestDigit));
             Console.WriteLine(string.Format("The smallest digit is {0}", smallestDigit));
@@ -83,15 +83,15 @@ namespace B21_Ex01_5
         private static int getSmallestDigit(int i_Number)
         {
             int userInput = i_Number;
-            int smallestDigitnNumber = i_Number % 10;
+            int smallestDigitNumber = i_Number % 10;
 
             while(userInput > 0)
             {
-                smallestDigitnNumber = Math.Min(userInput % 10, smallestDigitnNumber);
+                smallestDigitNumber = Math.Min(userInput % 10, smallestDigitNumber);
                 userInput /= 10;
             }
 
-            return smallestDigitnNumber;
+            return smallestDigitNumber;
         }
         
     }

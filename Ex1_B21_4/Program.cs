@@ -15,7 +15,7 @@ namespace Ex1_B21_4
         {
             Console.WriteLine("Please enter a valid input: consist of English letters only or digits only");
             string userInput = Console.ReadLine();
-            while(!((IsNumber(userInput) || isEnglishWord(userInput))&& userInput.Length==expectedInputLength))
+            while(!((IsNumber(userInput) || isEnglishWord(userInput))&& userInput.Length==expectedInputLength)))
             {
                 Console.WriteLine("Your input is invalid. Pleas try again.");
                 userInput = Console.ReadLine();
@@ -91,11 +91,7 @@ namespace Ex1_B21_4
             return isPalindromeReqHelper(i_Input, 0, (i_Input.Length) - 1, false);
         }
 
-        private static bool isPalindromeReqHelper(
-            string i_Input,
-            int i_LeftEdge,
-            int i_RightEdge,
-            bool i_PalindromeFlag)
+        private static bool isPalindromeReqHelper(string i_Input, int i_LeftEdge, int i_RightEdge, bool i_PalindromeFlag)
         {
             if(i_LeftEdge > i_RightEdge)
             {
