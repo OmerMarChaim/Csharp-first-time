@@ -66,7 +66,7 @@ namespace Ex1_B21_4
 
         private static bool isNumber(string i_String)
         {
-            return int.TryParse(i_String, out int _);
+            return int.TryParse(i_String, out int trashResult);
         }
 
         private static bool isEnglishWord(string i_UserInput)
