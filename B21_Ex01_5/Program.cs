@@ -32,13 +32,13 @@ namespace B21_Ex01_5
         {
             int largestDigit = getLargestDigit(i_InputInt);
             int smallestDigit = getSmallestDigit(i_InputInt);
-            int numberOfLettersDivideByThree = 0;
+            int numberOfLettersDivideByThree = getNumberOfDigitsDividedByThree(i_InputStr);
             int numberOfDigitisThatAreBiggerThenTheUnitsDigit = getBiggerThenUnit(i_InputInt);
             char currentDigit;
             Console.WriteLine(string.Format("The largest digit is {0}", largestDigit));
             Console.WriteLine(string.Format("The smallest digit is {0}", smallestDigit));
-         //   Console.WriteLine(string.Format("The number of digits that multiplication of 3 is {0}", ));
-            Console.WriteLine(string.Format("The number of digits that are bigger than the units digit{0}", numberOfDigitisThatAreBiggerThenTheUnitsDigit));
+           Console.WriteLine(string.Format("The number of digits that multiplication of 3 is {0}", numberOfLettersDivideByThree));
+            Console.WriteLine(string.Format("The number of digits that are bigger than the units digit is {0}", numberOfDigitisThatAreBiggerThenTheUnitsDigit));
 
 
 
@@ -94,14 +94,14 @@ namespace B21_Ex01_5
             return smallestDigitNumber;
         }
 
-        private static int theNumberOfDigitsDividedByThree(string i_Number)
+        private static int getNumberOfDigitsDividedByThree(string i_Number)
         {
             int numberOfDigitsCounter = 0;
             int numberOfDigits = i_Number.Length;
             for(int i = 0; i < numberOfDigits; i++)
             {
-                int.TryParse(i_Number[i].ToString(), out int currentDigit);
-                if(currentDigit / 3 == 0)
+                int currentDigit =  int.Parse(i_Number[i].ToString());
+                if(currentDigit % 3 == 0)
                 {
                     numberOfDigitsCounter++;
                 }

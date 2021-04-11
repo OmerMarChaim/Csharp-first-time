@@ -15,7 +15,7 @@ namespace Ex1_B21_4
         {
             Console.WriteLine("Please enter a valid input: consist of English letters only or digits only");
             string userInput = Console.ReadLine();
-            while(!((IsNumber(userInput) || isEnglishWord(userInput))&& userInput.Length==expectedInputLength)))
+            while(!((IsNumber(userInput) || isEnglishWord(userInput))&& userInput.Length==expectedInputLength))
             {
                 Console.WriteLine("Your input is invalid. Pleas try again.");
                 userInput = Console.ReadLine();
