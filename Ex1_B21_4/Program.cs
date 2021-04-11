@@ -17,7 +17,7 @@ namespace Ex1_B21_4
             string userInput = Console.ReadLine();
             while(!((IsNumber(userInput) || isEnglishWord(userInput))&& userInput.Length==expectedInputLength))
             {
-                Console.WriteLine("Your input is invalid. Pleas try again.");
+                Console.WriteLine("Your input is invalid. Please try again.");
                 userInput = Console.ReadLine();
             }
 
