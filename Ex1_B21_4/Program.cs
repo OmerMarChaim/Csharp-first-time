@@ -13,9 +13,9 @@ namespace Ex1_B21_4
 
         private static string getValidInput(int i_ExpectedInputLength)
         {
-            Console.WriteLine("Please enter a valid input: consist of English letters only or digits only");
+            Console.WriteLine("Please enter a valid input: consist of ten characters of all English letters only OR ALL digits numbers");
             string userInput = Console.ReadLine();
-            while(!((IsNumber(userInput) || isEnglishWord(userInput)) && userInput.Length == i_ExpectedInputLength))
+            while(!((isNonNegativeNumber(userInput) || isEnglishWord(userInput)) && userInput.Length == i_ExpectedInputLength))
             {
                 Console.WriteLine("Your input is invalid. Please try again.");
                 userInput = Console.ReadLine();
@@ -37,7 +37,7 @@ namespace Ex1_B21_4
 
             Console.WriteLine(palindromeResultOutput);
 
-            if(IsNumber(i_Input))
+            if(isNonNegativeNumber(i_Input))
             {
                 isMultiplicationOfFourFlag = isMultiplicationOfFour(i_Input);
                 if(!isMultiplicationOfFourFlag)
@@ -71,16 +71,16 @@ namespace Ex1_B21_4
 
         private static bool isMultiplicationOfFour(string i_Input)
         {
-            Int64 numberRepInput = Int64.Parse(i_Input);
+            long numberRepInput = long.Parse(i_Input);
 
             return numberRepInput % 4 == 0;
         }
 
-        public static bool IsNumber(string i_String)
+        private static bool isNonNegativeNumber(string i_String)
         {
-            bool isNumberFlag = Int64.TryParse(i_String, out Int64 trashResult);
+            bool isNonNegativeNumberFlag = long.TryParse(i_String, out long numberParseResult) && numberParseResult >= 0;
 
-            return isNumberFlag;
+            return  isNonNegativeNumberFlag;
         }
 
         private static bool isEnglishWord(string i_UserInput)
@@ -99,13 +99,13 @@ namespace Ex1_B21_4
             return isEnglishWordFlag;
         }
 
-        private static bool isPalindrome(string i_Input)
+        private static bool isPalindrome(string i_String)
         {
-            return isPalindromeReqHelper(i_Input, 0, (i_Input.Length) - 1, false);
+            return isPalindromeReqHelper(i_String, 0, (i_String.Length) - 1, false);
         }
 
         private static bool isPalindromeReqHelper(
-            string i_Input,
+            string i_String,
             int i_LeftEdge,
             int i_RightEdge,
             bool i_PalindromeFlag)
@@ -115,14 +115,14 @@ namespace Ex1_B21_4
                 i_PalindromeFlag = true;
             }
 
-            else if(i_Input[i_LeftEdge] != i_Input[i_RightEdge])
+            else if(i_String[i_LeftEdge] != i_String[i_RightEdge])
             {
                 i_PalindromeFlag = false;
             }
 
             else
             {
-                i_PalindromeFlag = isPalindromeReqHelper(i_Input, i_LeftEdge + 1, i_RightEdge - 1, i_PalindromeFlag);
+                i_PalindromeFlag = isPalindromeReqHelper(i_String, i_LeftEdge + 1, i_RightEdge - 1, i_PalindromeFlag);
             }
 
             return i_PalindromeFlag;

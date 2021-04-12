@@ -16,9 +16,9 @@ namespace B21_Ex01_5
 
         private static string getValidInput(int i_ExpectedInputLength)
         {
-            Console.WriteLine("Please enter a valid input: number with 6 digits");
+            Console.WriteLine("Please enter a valid input: Positive number with 6 digits");
             string userInput = Console.ReadLine();
-            while(!(Ex1_B21_4.Program.IsNumber(userInput) && userInput.Length == i_ExpectedInputLength))
+            while(!(isPositiveNumber(userInput) && userInput.Length == i_ExpectedInputLength))
             {
                 Console.WriteLine("Your input is invalid. Pleas try again.");
                 userInput = Console.ReadLine();
@@ -27,28 +27,22 @@ namespace B21_Ex01_5
             return userInput;
         }
 
+        private static bool isPositiveNumber(string i_String)
+        {
+            bool isPositiveNumberFlag = int.TryParse(i_String, out int numberParseResult) && numberParseResult > 0;
+
+            return isPositiveNumberFlag;
+        }
+
         private static void analyzeNumber(int i_InputInt, string i_InputStr)
         {
-            // 1 - check the largest digit
-            int largestDigit = getLargestDigit(i_InputInt);
-            // 2 - check the smallest digit
-            int smallestDigit = getSmallestDigit(i_InputInt);
-            // 3 - how many letters are divide by 3
-            int numberOfLettersDivideByThree = getNumberOfDigitsDividedByThree(i_InputStr);
-            // 4 - the number of digits that bigger then the unit digit
-            int numberOfDigitsBiggerThenUnitsDigit = getBiggerThenUnit(i_InputInt);
-            //print the results
-            Console.WriteLine(string.Format("The largest digit is {0}", largestDigit));
-            Console.WriteLine(string.Format("The smallest digit is {0}", smallestDigit));
-            Console.WriteLine(
-                string.Format(
-                    "The number of digits that multiplication of three is {0}",
-                    numberOfLettersDivideByThree));
-            Console.WriteLine(
-                string.Format(
-                    "The number of digits that are bigger than the units digit is{0}",
-                    numberOfDigitsBiggerThenUnitsDigit));
-        }
+            int userInputInt = i_InputInt;
+            int largestDigit = i_InputInt % 10; // 1 - check the largest digit
+            int smallestDigit = i_InputInt % 10; // 2 - check the smallest digit
+            int numberOfLettersDivideByThree =
+                getNumberOfDigitsDividedByThree(i_InputStr); // 3 - how many letters are divide by 3
+            int numberOfDigitsBiggerThenUnitsDigit = 0;
+            int unitDigit = userInputInt % 10;
 
         private static int getBiggerThenUnit(int i_Input)
         {
@@ -66,8 +60,17 @@ namespace B21_Ex01_5
                 userInput /= 10;
             }
 
-            return numOfBiggerThenUnit;
-        }
+            Console.WriteLine(
+                string.Format(
+                    @"The largest digit is {0}
+The smallest digit is {1}
+The number of digits that multiplication of three is {2}
+The number of digits that are bigger than the units digit is {3}
+",
+                    largestDigit,
+                    smallestDigit,
+                    numberOfLettersDivideByThree,
+                    numberOfDigitsBiggerThenUnitsDigit));
 
         private static int getLargestDigit(int i_Number)
         {
