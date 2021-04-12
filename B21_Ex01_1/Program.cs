@@ -15,12 +15,12 @@ namespace B21_Ex01_1
         {
             String[] userInputs = new String[i_NumberOfInputs];
             int[] decimalValues = new int[i_NumberOfInputs];
-            String msg = String.Format( // Ask about Format with ${}
+            String startMsg = String.Format(
                 "Please insert {0} positive numbers with {1} digits in valid binary format",
                 i_NumberOfInputs,
                 i_NumberOfBits);
 
-            Console.WriteLine(msg);
+            Console.WriteLine(startMsg);
             for (int i = 0; i < i_NumberOfInputs; i++)
             {
                 userInputs[i] = getValidInputs(i_NumberOfBits);
@@ -103,8 +103,9 @@ namespace B21_Ex01_1
             }
 
             Console.WriteLine(
+                String.Format(
                 "The number of numbers that is strictly monotonically increasing is {0}",
-                sumOfStrictlyIncreasingNumbers);
+                sumOfStrictlyIncreasingNumbers));
         }
 
         private static bool isStrictlyIncreasingSeries(int i_NumToCheck)
@@ -138,11 +139,11 @@ namespace B21_Ex01_1
             }
 
             int numberOfZeros = (numberOfDigits * lengthOfInput) - numberOfOnes;
-            float averageOfOnes = numberOfOnes / lengthOfInput;
-            float averageOfZeros = numberOfZeros / lengthOfInput;
+            float averageOfOnes = numberOfOnes / (float)lengthOfInput;
+            float averageOfZeros = numberOfZeros / (float)lengthOfInput;
 
-            Console.WriteLine("The average of ones in the input numbers is {0}", averageOfOnes);
-            Console.WriteLine("The average of zeros in the input numbers is {0}", averageOfZeros);
+            Console.WriteLine(string.Format("The average of ones in the input numbers is {0}", averageOfOnes));
+            Console.WriteLine(string.Format("The average of zeros in the input numbers is {0}", averageOfZeros));
         }
 
         private static void powerOfTwo(String[] i_BinaryValues)
@@ -157,7 +158,7 @@ namespace B21_Ex01_1
                 }
             }
 
-            Console.WriteLine("The number of numbers that is power of two is {0}", numberOfPowerOfTwo);
+            Console.WriteLine(string.Format("The number of numbers that is power of two is {0}", numberOfPowerOfTwo));
         }
 
         private static int getNumberOfOnes(String i_BinaryValue)
@@ -192,8 +193,8 @@ namespace B21_Ex01_1
                 }
             }
 
-            Console.WriteLine("The maximum number is {0}", maxValue);
-            Console.WriteLine("The minimum number is {0}", minValue);
+            Console.WriteLine(string.Format("The maximum number is {0}", maxValue));
+            Console.WriteLine(string.Format("The minimum number is {0}", minValue));
         }
     }
 }
