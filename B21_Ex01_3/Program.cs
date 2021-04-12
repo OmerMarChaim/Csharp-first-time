@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Text;
-using B21_Ex01_2;
 
 namespace B21_Ex01_3
 {
