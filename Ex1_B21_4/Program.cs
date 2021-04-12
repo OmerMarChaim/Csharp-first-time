@@ -11,11 +11,11 @@ namespace Ex1_B21_4
             stringAnalyze(input);
         }
 
-        private static string getValidInput(int expectedInputLength)
+        private static string getValidInput(int i_ExpectedInputLength)
         {
             Console.WriteLine("Please enter a valid input: consist of English letters only or digits only");
             string userInput = Console.ReadLine();
-            while(!((IsNumber(userInput) || isEnglishWord(userInput))&& userInput.Length==expectedInputLength))
+            while(!((IsNumber(userInput) || isEnglishWord(userInput)) && userInput.Length == i_ExpectedInputLength))
             {
                 Console.WriteLine("Your input is invalid. Please try again.");
                 userInput = Console.ReadLine();
@@ -26,15 +26,26 @@ namespace Ex1_B21_4
 
         private static void stringAnalyze(string i_Input)
         {
+            bool isMultiplicationOfFourFlag;
+            string multiplicationOfFourOutput = "Your input is multiplication of 4";
             bool isPalindromeFlag = isPalindrome(i_Input);
-            Console.Write("Your input is ");
-            Console.WriteLine(isPalindromeFlag ? "palindrome" : "NOT palindrome");
+            string palindromeResultOutput = "Your input is Palindrome";
+            if(!isPalindromeFlag)
+            {
+                palindromeResultOutput = "Your input is NOT Palindrome";
+            }
+
+            Console.WriteLine(palindromeResultOutput);
 
             if(IsNumber(i_Input))
             {
-                bool isMultiplicationOfFourFlag = isMultiplicationOfFour(i_Input);
-                Console.Write("Your input is ");
-                Console.WriteLine(isMultiplicationOfFourFlag ? "multiplication of 4" : "NOT multiplication of 4");
+                isMultiplicationOfFourFlag = isMultiplicationOfFour(i_Input);
+                if(!isMultiplicationOfFourFlag)
+                {
+                    multiplicationOfFourOutput = "Your input is NOT multiplication of 4";
+                }
+
+                Console.WriteLine(multiplicationOfFourOutput);
             }
             else
             {
@@ -60,14 +71,16 @@ namespace Ex1_B21_4
 
         private static bool isMultiplicationOfFour(string i_Input)
         {
-            int numberRepInput = int.Parse(i_Input);
+            Int64 numberRepInput = Int64.Parse(i_Input);
 
             return numberRepInput % 4 == 0;
         }
 
         public static bool IsNumber(string i_String)
         {
-            return int.TryParse(i_String, out int trashResult);
+            bool isNumberFlag = Int64.TryParse(i_String, out Int64 trashResult);
+
+            return isNumberFlag;
         }
 
         private static bool isEnglishWord(string i_UserInput)
@@ -91,7 +104,11 @@ namespace Ex1_B21_4
             return isPalindromeReqHelper(i_Input, 0, (i_Input.Length) - 1, false);
         }
 
-        private static bool isPalindromeReqHelper(string i_Input, int i_LeftEdge, int i_RightEdge, bool i_PalindromeFlag)
+        private static bool isPalindromeReqHelper(
+            string i_Input,
+            int i_LeftEdge,
+            int i_RightEdge,
+            bool i_PalindromeFlag)
         {
             if(i_LeftEdge > i_RightEdge)
             {
