@@ -13,9 +13,9 @@ namespace Ex1_B21_4
 
         private static string getValidInput(int i_ExpectedInputLength)
         {
-            Console.WriteLine("Please enter a valid input: consist of English letters only or digits only");
+            Console.WriteLine("Please enter a valid input: consist of ten characters of all English letters only OR ALL digits numbers");
             string userInput = Console.ReadLine();
-            while(!((IsNumber(userInput) || isEnglishWord(userInput)) && userInput.Length == i_ExpectedInputLength))
+            while(!((IsNonNegativNumber(userInput) || isEnglishWord(userInput)) && userInput.Length == i_ExpectedInputLength))
             {
                 Console.WriteLine("Your input is invalid. Please try again.");
                 userInput = Console.ReadLine();
@@ -37,7 +37,7 @@ namespace Ex1_B21_4
 
             Console.WriteLine(palindromeResultOutput);
 
-            if(IsNumber(i_Input))
+            if(IsNonNegativNumber(i_Input))
             {
                 isMultiplicationOfFourFlag = isMultiplicationOfFour(i_Input);
                 if(!isMultiplicationOfFourFlag)
@@ -71,16 +71,17 @@ namespace Ex1_B21_4
 
         private static bool isMultiplicationOfFour(string i_Input)
         {
-            Int64 numberRepInput = Int64.Parse(i_Input);
+            long numberRepInput = long.Parse(i_Input);
 
             return numberRepInput % 4 == 0;
         }
 
-        public static bool IsNumber(string i_String)
+        public static bool IsNonNegativNumber(string i_String)
         {
-            bool isNumberFlag = Int64.TryParse(i_String, out Int64 trashResult);
+            bool isNumberFlag = long.TryParse(i_String, out long numberParseResult);
+            bool isNonNegativNumberFlag = numberParseResult >= 0;
 
-            return isNumberFlag;
+            return isNumberFlag && isNonNegativNumberFlag;
         }
 
         private static bool isEnglishWord(string i_UserInput)

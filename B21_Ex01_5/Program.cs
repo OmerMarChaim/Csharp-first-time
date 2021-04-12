@@ -17,7 +17,7 @@ namespace B21_Ex01_5
         {
             Console.WriteLine("Please enter a valid input: number with 6 digits");
             string userInput = Console.ReadLine();
-            while(!(Ex1_B21_4.Program.IsNumber(userInput) && userInput.Length == i_ExpectedInputLength))
+            while(!(Ex1_B21_4.Program.IsNonNegativNumber(userInput) && userInput.Length == i_ExpectedInputLength))
             {
                 Console.WriteLine("Your input is invalid. Pleas try again.");
                 userInput = Console.ReadLine();
