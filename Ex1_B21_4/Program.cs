@@ -95,15 +95,18 @@ namespace Ex1_B21_4
         {
             if(i_LeftEdge > i_RightEdge)
             {
-                return true;
+                i_PalindromeFlag = true;
             }
 
-            if(i_Input[i_LeftEdge] != i_Input[i_RightEdge])
+            else if(i_Input[i_LeftEdge] != i_Input[i_RightEdge])
             {
-                return false;
+                i_PalindromeFlag = false;
             }
 
-            i_PalindromeFlag = isPalindromeReqHelper(i_Input, i_LeftEdge + 1, i_RightEdge - 1, i_PalindromeFlag);
+            else
+            {
+                i_PalindromeFlag = isPalindromeReqHelper(i_Input, i_LeftEdge + 1, i_RightEdge - 1, i_PalindromeFlag);
+            }
 
             return i_PalindromeFlag;
         }
